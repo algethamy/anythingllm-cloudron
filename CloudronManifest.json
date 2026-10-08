@@ -23,8 +23,8 @@
   "postInstallMessage": "file://POSTINSTALL.md",
   "changelog": "file://CHANGELOG.md",
   "iconUrl": "https://communityapps.appx.uk/cloudron-anythingllm/logo.png",
-  "packagerName": "@timconsidine",
-  "packagerUrl": "https://forgejo.tcjc.uk/cca/cloudron-anythingllm",
+  "packagerName": "@algethamy",
+  "packagerUrl": "https://github.com/algethamy/anythingllm-cloudron",
   "minBoxVersion": "9.1.0",
   "mediaLinks": [
     "https://communityapps.appx.uk/cloudron-anythingllm/media/screenshot.png"
