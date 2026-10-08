@@ -12,7 +12,9 @@ A Cloudron package for upstream [AnythingLLM](https://github.com/Mintplex-Labs/a
 
 ## Commands
 
-There is no test suite, linter, or package.json. Development is the standard Cloudron packaging loop:
+There is no test suite, linter, or package.json. The image must be built on a native linux/amd64 host: QEMU emulation on Apple Silicon segfaults in the collector's `sharp` native-module install. The supported path is the GitHub Actions workflow `.github/workflows/build-image.yml`, which builds on push to `main` (when Dockerfile/start.sh/manifest change) or via workflow_dispatch and pushes `docker.io/algethamy/anythingllm-cloudron:<manifest version>` and `:latest`. It needs the repo secrets `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN`. Local builds are only viable from a Rosetta-backed Colima profile (`colima start amd64build --vm-type vz --vz-rosetta`, then `DOCKER_CONTEXT=colima-amd64build docker buildx build --platform linux/amd64 ...`).
+
+The rest of the Cloudron packaging loop:
 
 ```bash
 # Build the image (multi-arch aware; TARGETARCH selects Chromium strategy)

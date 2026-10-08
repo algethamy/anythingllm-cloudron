@@ -1,0 +1,44 @@
+name: Build and push Docker image
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - Dockerfile
+      - start.sh
+      - server.env.template
+      - CloudronManifest.json
+
+concurrency:
+  group: build-image
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read package version from CloudronManifest.json
+        id: manifest
+        run: echo "version=$(jq -r .version CloudronManifest.json)" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          provenance: false
+          tags: |
+            docker.io/algethamy/anythingllm-cloudron:${{ steps.manifest.outputs.version }}
+            docker.io/algethamy/anythingllm-cloudron:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
