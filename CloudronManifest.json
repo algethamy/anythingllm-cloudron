@@ -1,0 +1,32 @@
+{
+  "id": "com.cloudron.anythingllm",
+  "title": "AnythingLLM",
+  "author": "Mintplex Labs",
+  "contactEmail": "cloudron@u99.uk",
+  "website": "https://github.com/Mintplex-Labs/anything-llm",
+  "version": "0.0.7",
+  "description": "All-in-one AI app with RAG, agents, and multi-modal support. (AnythingLLM v1.15.0)",
+  "tagline": "AnythingLLM is a powerful AI app that can help you build and deploy your own AI models.",
+  "healthCheckPath": "/",
+  "icon": "file://logo.png",
+  "httpPort": 3001,
+  "memoryLimit": 2147483648,
+  "addons": {
+    "localstorage": {}
+  },
+  "tags": [
+    "ai",
+    "llm",
+    "rag"
+  ],
+  "manifestVersion": 2,
+  "postInstallMessage": "file://POSTINSTALL.md",
+  "changelog": "file://CHANGELOG.md",
+  "iconUrl": "https://communityapps.appx.uk/cloudron-anythingllm/logo.png",
+  "packagerName": "@timconsidine",
+  "packagerUrl": "https://forgejo.tcjc.uk/cca/cloudron-anythingllm",
+  "minBoxVersion": "9.1.0",
+  "mediaLinks": [
+    "https://communityapps.appx.uk/cloudron-anythingllm/media/screenshot.png"
+  ]
+}
