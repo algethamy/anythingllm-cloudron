@@ -9,7 +9,7 @@ ENV_TEMPLATE="${APP_DIR}/defaults/server.env"
 STORAGE_TEMPLATE_DIR="${APP_DIR}/defaults/storage"
 INIT_FLAG="${DATA_DIR}/.initialized"
 VERSION_FILE="${DATA_DIR}/.upstream_version"
-CURRENT_UPSTREAM_VERSION="1.15.0"
+CURRENT_UPSTREAM_VERSION="1.17.0"
 
 generate_secret() {
   local length="${1}"

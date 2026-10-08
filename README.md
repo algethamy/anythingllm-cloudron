@@ -1,19 +1,19 @@
 AnythingLLM for Cloudron
 ========================
 
-This repository packages upstream [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm) `v1.15.0` for Cloudron using a fresh packaging layout.
+This repository packages upstream [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm) `v1.17.0` for Cloudron using a fresh packaging layout.
 
 Overview
 --------
 - App ID: `com.cloudron.anythingllm`
-- Upstream version: `v1.15.0`
+- Upstream version: `v1.17.0`
 - Runtime base image: `cloudron/base:5.0.0`
 - HTTP port: `3001`
 - Persistent addon: `localstorage`
 
 Package Layout
 --------------
-- `/app/code` contains the read-only application code copied from the upstream `v1.15.0` release tarball.
+- `/app/code` contains the read-only application code copied from the upstream `v1.17.0` release tarball.
 - `/app/data` contains all writable state and configuration required by Cloudron.
 - Dockerfile-created symlinks redirect the upstream writable paths into `/app/data`:
   - `/app/code/server/.env` -> `/app/data/server.env`

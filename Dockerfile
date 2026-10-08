@@ -1,5 +1,5 @@
 FROM debian:bookworm-slim AS upstream-source
-ARG ANYTHINGLLM_VERSION=v1.15.0
+ARG ANYTHINGLLM_VERSION=v1.17.0
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
@@ -19,13 +19,13 @@ COPY --from=upstream-source /tmp/upstream/frontend/ ./
 RUN yarn build
 
 FROM cloudron/base:5.0.0@sha256:04fd70dbd8ad6149c19de39e35718e024417c3e01dc9c6637eaf4a41ec4e596c
-ARG ANYTHINGLLM_VERSION=v1.15.0
+ARG ANYTHINGLLM_VERSION=v1.17.0
 ARG TARGETARCH
 
 ENV DEBIAN_FRONTEND=noninteractive \
     NODE_ENV=production \
     ANYTHING_LLM_RUNTIME=cloudron \
-    DEPLOYMENT_VERSION=1.15.0 \
+    DEPLOYMENT_VERSION=1.17.0 \
     HOME=/app/data \
     PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/bin
 

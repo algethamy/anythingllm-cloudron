@@ -30,3 +30,6 @@
 
 [0.0.7]
 * initial package of AnythingLLM 1.15.0 with new POSTINSTALL message
+
+[0.0.8]
+* update AnythingLLM to 1.17.0
